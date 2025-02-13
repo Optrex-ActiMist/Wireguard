@@ -24,8 +24,18 @@ cat /root/client.conf
 ```
 sudo bash wireguard.sh
 ```
+# 安装 BBR （如果未安装的话）
+```
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf
+```
+```
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf
+```
+```
+sysctl -p
+```
 
-# 值得注意的是，每一个客户端文件.conf，只能对应一个用户，不能多客户端使用。需要多人使用，请给每个人分配一个.conf文件。
+### 值得注意的是，每一个客户端文件.conf，只能对应一个用户，不能多客户端使用。需要多人使用，请给每个人分配一个.conf文件。
 
 
 # 源文件：
